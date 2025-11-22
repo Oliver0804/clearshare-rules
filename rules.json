@@ -1,0 +1,303 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-11-23T00:00:00Z",
+  "metadata": {
+    "name": "ClearShare Rules",
+    "description": "URL tracking parameter filter rules for ClearShare iOS App",
+    "maintainer": "BASHCAT (@Oliver0804)",
+    "repository": "https://github.com/Oliver0804/clearshare-rules"
+  },
+  "platforms": [
+    {
+      "name": "Instagram",
+      "domains": ["instagram.com", "www.instagram.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": []
+      }
+    },
+    {
+      "name": "Facebook",
+      "domains": ["facebook.com", "www.facebook.com", "m.facebook.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["fbid"]
+      }
+    },
+    {
+      "name": "Twitter/X",
+      "domains": ["twitter.com", "x.com", "www.twitter.com", "www.x.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["s", "t", "src"]
+      }
+    },
+    {
+      "name": "Threads",
+      "domains": ["threads.com", "www.threads.com", "threads.net", "www.threads.net"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["xmt", "slof", "igsh", "igshid"]
+      }
+    },
+    {
+      "name": "TikTok",
+      "domains": ["tiktok.com", "www.tiktok.com", "vm.tiktok.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["is_from_webapp", "sender_device", "web_id", "_r", "_t"]
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "domains": ["linkedin.com", "www.linkedin.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["trackingId"]
+      }
+    },
+    {
+      "name": "Pinterest",
+      "domains": ["pinterest.com", "www.pinterest.com", "pin.it"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["mt", "source_app_id"]
+      }
+    },
+    {
+      "name": "Reddit",
+      "domains": ["reddit.com", "www.reddit.com", "old.reddit.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["share_id", "context", "ref", "ref_source"]
+      }
+    },
+    {
+      "name": "YouTube",
+      "domains": ["youtube.com", "www.youtube.com", "m.youtube.com"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["v", "list", "t", "start"]
+      }
+    },
+    {
+      "name": "YouTube 短網址",
+      "domains": ["youtu.be"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["t", "start"]
+      }
+    },
+    {
+      "name": "Bilibili",
+      "domains": ["bilibili.com", "www.bilibili.com", "b23.tv"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["p", "t"]
+      }
+    },
+    {
+      "name": "淘寶",
+      "domains": ["taobao.com", "item.taobao.com", "m.taobao.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["id"]
+      }
+    },
+    {
+      "name": "天貓",
+      "domains": ["tmall.com", "detail.tmall.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["id"]
+      }
+    },
+    {
+      "name": "Amazon",
+      "domains": ["amazon.com", "www.amazon.com", "amazon.co.jp", "amazon.co.uk", "amazon.de"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["keywords", "qid", "sr"]
+      }
+    },
+    {
+      "name": "eBay",
+      "domains": ["ebay.com", "www.ebay.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["hash", "item"]
+      }
+    },
+    {
+      "name": "AliExpress",
+      "domains": ["aliexpress.com", "www.aliexpress.com", "m.aliexpress.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["srcSns", "spreadType", "bizType", "social_params", "aff_fcid", "aff_fsk", "aff_platform", "aff_trace_key"]
+      }
+    },
+    {
+      "name": "蝦皮",
+      "domains": ["shopee.tw", "shopee.com.my", "shopee.sg"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["af_siteid", "af_click_lookback", "af_viewthrough_lookback", "is_from_login", "af_reengagement_window", "af_sub_siteid", "c", "pid"]
+      }
+    },
+    {
+      "name": "Spotify",
+      "domains": ["open.spotify.com", "spotify.com"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["si", "utm_source", "utm_medium", "utm_campaign", "nd"]
+      }
+    },
+    {
+      "name": "Apple Music",
+      "domains": ["music.apple.com"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["i", "ls", "app", "at", "ct", "pt"]
+      }
+    },
+    {
+      "name": "Netflix",
+      "domains": ["netflix.com", "www.netflix.com"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["trackId", "tctx", "jbv"]
+      }
+    }
+  ],
+  "common_tracking_params": [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "utm_id",
+    "utm_source_platform",
+    "utm_creative_format",
+    "utm_marketing_tactic",
+    "_ga",
+    "_gl",
+    "_gid",
+    "ga_source",
+    "ga_medium",
+    "ga_campaign",
+    "ga_term",
+    "ga_content",
+    "fbclid",
+    "_fbc",
+    "_fbp",
+    "fb_action_ids",
+    "fb_action_types",
+    "fb_source",
+    "fb_ref",
+    "xmt",
+    "slof",
+    "igsh",
+    "igshid",
+    "gclid",
+    "gclsrc",
+    "gad_source",
+    "_gcl_aw",
+    "_gcl_dc",
+    "dclid",
+    "msclkid",
+    "ttclid",
+    "twclid",
+    "ScCid",
+    "li_fat_id",
+    "mc_cid",
+    "mc_eid",
+    "emci",
+    "emdi",
+    "ceid",
+    "_bta_tid",
+    "_bta_c",
+    "trk_contact",
+    "trk_msg",
+    "trk_module",
+    "trk_sid",
+    "share",
+    "share_id",
+    "shared",
+    "socialref",
+    "hootPostID",
+    "__s",
+    "s_kwcid",
+    "ref",
+    "referer",
+    "referrer",
+    "source",
+    "sourceid",
+    "rsid",
+    "spm",
+    "scm",
+    "pvid",
+    "pos",
+    "abbucket",
+    "algo_expid",
+    "algo_pvid",
+    "btsid",
+    "ws_ab_test",
+    "clickid",
+    "click_id",
+    "affiliate_id",
+    "aff_id",
+    "partner_id",
+    "campaign_id",
+    "ad_id",
+    "adset_id",
+    "oly_anon_id",
+    "oly_enc_id",
+    "vero_id",
+    "nr_email_referer",
+    "yclid",
+    "wickedid",
+    "_openstat",
+    "from",
+    "via"
+  ]
+}
