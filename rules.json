@@ -1,6 +1,6 @@
 {
-  "version": "1.2.0",
-  "last_updated": "2025-11-23T14:00:00Z",
+  "version": "1.3.0",
+  "last_updated": "2025-11-23T16:00:00Z",
   "metadata": {
     "name": "ClearShare Rules",
     "description": "URL tracking parameter filter rules for ClearShare iOS App",
@@ -637,6 +637,536 @@
         "mode": "remove",
         "params": ["ref", "from", "track"]
       }
+    },
+    {
+      "name": "Snapchat",
+      "domains": ["snapchat.com", "www.snapchat.com", "story.snapchat.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["sc_cid", "ScCid", "share_id", "sender_web_id", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Tumblr",
+      "domains": ["tumblr.com", "www.tumblr.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["_branch_referrer", "_branch_match_id", "source", "share", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Weibo",
+      "domains": ["weibo.com", "weibo.cn", "m.weibo.cn", "www.weibo.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["from", "wm", "sourceType", "sudaref", "display", "retcode", "uid", "lfid", "luicode"]
+      }
+    },
+    {
+      "name": "Xiaohongshu",
+      "domains": ["xiaohongshu.com", "www.xiaohongshu.com", "xhslink.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["appuid", "app_platform", "app_version", "share_from_user_hidden", "xhsshare", "shareRedId", "apptime", "exSource"]
+      }
+    },
+    {
+      "name": "Douyin",
+      "domains": ["douyin.com", "www.douyin.com", "v.douyin.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["from", "from_source", "share_token", "sec_uid", "u_code", "timestamp", "enter_from", "enter_method"]
+      }
+    },
+    {
+      "name": "Naver",
+      "domains": ["naver.com", "blog.naver.com", "cafe.naver.com", "m.naver.com", "search.naver.com"],
+      "category": "search",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["ncc", "ost", "ntm_source", "ntm_medium", "ntm_campaign", "query_from", "ref"]
+      }
+    },
+    {
+      "name": "KakaoTalk",
+      "domains": ["kakao.com", "kakaocorp.com", "page.kakao.com", "pf.kakao.com"],
+      "category": "messaging",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "kakao_click_id", "ref"]
+      }
+    },
+    {
+      "name": "Etsy",
+      "domains": ["etsy.com", "www.etsy.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["click_key", "click_sum", "ref", "ga_order", "ga_search_type", "ga_view_type", "ga_search_query", "organic_search_click"]
+      }
+    },
+    {
+      "name": "Lazada",
+      "domains": ["lazada.com", "lazada.sg", "lazada.com.my", "lazada.co.th", "lazada.vn", "lazada.co.id", "lazada.com.ph"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["spm", "scm", "from", "pvid", "search", "mp", "acm", "clickTrackInfo", "exlaz", "c"]
+      }
+    },
+    {
+      "name": "Quora",
+      "domains": ["quora.com", "www.quora.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["ch", "oid", "share", "srid", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "StackOverflow",
+      "domains": ["stackoverflow.com", "stackexchange.com", "superuser.com", "serverfault.com", "askubuntu.com"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "cb"]
+      }
+    },
+    {
+      "name": "Wikipedia",
+      "domains": ["wikipedia.org", "en.wikipedia.org", "zh.wikipedia.org"],
+      "category": "reference",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["wprov", "useskin", "veaction", "campaign", "wmf_source", "wmf_medium", "wmf_campaign"]
+      }
+    },
+    {
+      "name": "Walmart",
+      "domains": ["walmart.com", "www.walmart.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["athena", "athcpid", "athpgid", "athtvid", "athznid", "athenession", "athieession", "adid", "veh", "povid", "wl0", "wl13"]
+      }
+    },
+    {
+      "name": "Target",
+      "domains": ["target.com", "www.target.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["afid", "clkid", "ref", "lnk", "preselect", "cpng", "adgrp"]
+      }
+    },
+    {
+      "name": "BestBuy",
+      "domains": ["bestbuy.com", "www.bestbuy.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["ref", "loc", "acampID", "irclickid", "irgwc", "mpid", "intl"]
+      }
+    },
+    {
+      "name": "Flipboard",
+      "domains": ["flipboard.com", "share.flipboard.com"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content"]
+      }
+    },
+    {
+      "name": "Pocket",
+      "domains": ["getpocket.com", "pocket.co"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Feedly",
+      "domains": ["feedly.com"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "Kick",
+      "domains": ["kick.com", "www.kick.com"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "Rumble",
+      "domains": ["rumble.com", "www.rumble.com"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "WhatsApp",
+      "domains": ["wa.me", "api.whatsapp.com", "web.whatsapp.com", "whatsapp.com"],
+      "category": "messaging",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["phone", "text"]
+      }
+    },
+    {
+      "name": "Signal",
+      "domains": ["signal.org", "signal.me", "signal.group"],
+      "category": "messaging",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": []
+      }
+    },
+    {
+      "name": "Zoom",
+      "domains": ["zoom.us", "us02web.zoom.us", "us04web.zoom.us", "us05web.zoom.us"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["pwd"]
+      }
+    },
+    {
+      "name": "Airbnb",
+      "domains": ["airbnb.com", "www.airbnb.com", "airbnb.com.tw"],
+      "category": "travel",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["source_impression_id", "previous_page_section_name", "federated_search_id", "search_type", "af_force_deeplink", "af_sub1"]
+      }
+    },
+    {
+      "name": "Expedia",
+      "domains": ["expedia.com", "www.expedia.com", "expedia.com.tw"],
+      "category": "travel",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "rfrr", "pwaLob", "tpid", "eapid"]
+      }
+    },
+    {
+      "name": "TripAdvisor",
+      "domains": ["tripadvisor.com", "tripadvisor.com.tw", "www.tripadvisor.com"],
+      "category": "travel",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["m", "o", "src", "lid"]
+      }
+    },
+    {
+      "name": "Yelp",
+      "domains": ["yelp.com", "www.yelp.com"],
+      "category": "lifestyle",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "osq", "start", "cflt"]
+      }
+    },
+    {
+      "name": "Bandcamp",
+      "domains": ["bandcamp.com"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["from", "search_item_id", "search_item_type", "search_match_part", "search_page_id", "search_page_no", "search_rank", "search_sig"]
+      }
+    },
+    {
+      "name": "SoundCloud",
+      "domains": ["soundcloud.com", "www.soundcloud.com"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "si", "ref"]
+      }
+    },
+    {
+      "name": "TickTick",
+      "domains": ["ticktick.com", "www.ticktick.com"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Trello",
+      "domains": ["trello.com", "www.trello.com"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "Dropbox",
+      "domains": ["dropbox.com", "www.dropbox.com"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["oref", "n", "smid", "src", "role_key", "rlkey"]
+      }
+    },
+    {
+      "name": "OneDrive",
+      "domains": ["onedrive.live.com", "1drv.ms"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["resid", "authkey", "e"]
+      }
+    },
+    {
+      "name": "GoogleDrive",
+      "domains": ["drive.google.com"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["usp"]
+      }
+    },
+    {
+      "name": "Canva",
+      "domains": ["canva.com", "www.canva.com"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content"]
+      }
+    },
+    {
+      "name": "Figma",
+      "domains": ["figma.com", "www.figma.com"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Dribbble",
+      "domains": ["dribbble.com", "www.dribbble.com"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "Behance",
+      "domains": ["behance.net", "www.behance.net"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["tracking_source", "log_shim_removal", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "ProductHunt",
+      "domains": ["producthunt.com", "www.producthunt.com"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "HackerNews",
+      "domains": ["news.ycombinator.com"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": ["id"]
+      }
+    },
+    {
+      "name": "DevTo",
+      "domains": ["dev.to"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "Forbes",
+      "domains": ["forbes.com", "www.forbes.com"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["sh", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "BBC",
+      "domains": ["bbc.com", "www.bbc.com", "bbc.co.uk"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["at_campaign", "at_medium", "at_custom1", "at_custom2", "at_custom3", "at_custom4", "xtor"]
+      }
+    },
+    {
+      "name": "CNN",
+      "domains": ["cnn.com", "www.cnn.com", "edition.cnn.com"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]
+      }
+    },
+    {
+      "name": "NYTimes",
+      "domains": ["nytimes.com", "www.nytimes.com"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["smid", "smtyp", "smi", "auth", "login", "action", "module", "region", "pgtype", "searchResultPosition"]
+      }
+    },
+    {
+      "name": "Guardian",
+      "domains": ["theguardian.com", "www.theguardian.com"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["CMP", "INTCMP", "acquisitionData", "REFPVID"]
+      }
+    },
+    {
+      "name": "Twitch Clips",
+      "domains": ["clips.twitch.tv"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["tt_medium", "tt_content"]
+      }
+    },
+    {
+      "name": "Epic Games",
+      "domains": ["epicgames.com", "store.epicgames.com", "www.epicgames.com"],
+      "category": "gaming",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "epic_affiliate", "epic_gameId"]
+      }
+    },
+    {
+      "name": "GOG",
+      "domains": ["gog.com", "www.gog.com"],
+      "category": "gaming",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "pp"]
+      }
+    },
+    {
+      "name": "Humble Bundle",
+      "domains": ["humblebundle.com", "www.humblebundle.com"],
+      "category": "gaming",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["partner", "utm_source", "utm_medium", "utm_campaign", "hmb_source", "hmb_medium", "hmb_campaign"]
+      }
+    },
+    {
+      "name": "Ticketmaster",
+      "domains": ["ticketmaster.com", "ticketmaster.com.tw", "www.ticketmaster.com"],
+      "category": "lifestyle",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["camefrom", "brand", "tm_link", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Eventbrite",
+      "domains": ["eventbrite.com", "www.eventbrite.com", "eventbrite.com.tw"],
+      "category": "lifestyle",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["aff", "affn", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+      }
+    },
+    {
+      "name": "Meetup",
+      "domains": ["meetup.com", "www.meetup.com"],
+      "category": "lifestyle",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "rv", "_cookie-check"]
+      }
     }
   ],
   "common_tracking_params": [
@@ -828,6 +1358,86 @@
     "share_tag",
     "timestamp",
     "unique_k",
-    "vd_source"
+    "vd_source",
+    "_branch_referrer",
+    "_branch_match_id",
+    "branch_used",
+    "appuid",
+    "xhsshare",
+    "shareRedId",
+    "wm",
+    "sudaref",
+    "luicode",
+    "lfid",
+    "ntm_source",
+    "ntm_medium",
+    "ntm_campaign",
+    "kakao_click_id",
+    "click_key",
+    "click_sum",
+    "ga_order",
+    "ga_search_type",
+    "ga_view_type",
+    "organic_search_click",
+    "clickTrackInfo",
+    "exlaz",
+    "wprov",
+    "wmf_source",
+    "wmf_medium",
+    "wmf_campaign",
+    "athena",
+    "athcpid",
+    "athpgid",
+    "athznid",
+    "athenession",
+    "sc_cid",
+    "sender_web_id",
+    "source_impression_id",
+    "federated_search_id",
+    "previous_page_section_name",
+    "af_force_deeplink",
+    "af_sub1",
+    "af_sub2",
+    "af_sub3",
+    "af_sub4",
+    "af_sub5",
+    "af_dp",
+    "af_web_dp",
+    "search_item_id",
+    "search_item_type",
+    "search_match_part",
+    "search_page_id",
+    "search_page_no",
+    "search_rank",
+    "search_sig",
+    "tracking_source",
+    "log_shim_removal",
+    "at_campaign",
+    "at_medium",
+    "at_custom1",
+    "at_custom2",
+    "at_custom3",
+    "at_custom4",
+    "xtor",
+    "smid",
+    "smtyp",
+    "CMP",
+    "INTCMP",
+    "acquisitionData",
+    "REFPVID",
+    "hmb_source",
+    "hmb_medium",
+    "hmb_campaign",
+    "camefrom",
+    "tm_link",
+    "irclickid",
+    "irgwc",
+    "acampID",
+    "epic_affiliate",
+    "epic_gameId",
+    "rfrr",
+    "pwaLob",
+    "tpid",
+    "eapid"
   ]
 }
