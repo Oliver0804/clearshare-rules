@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "last_updated": "2025-11-23T00:00:00Z",
+  "version": "1.2.0",
+  "last_updated": "2025-11-23T14:00:00Z",
   "metadata": {
     "name": "ClearShare Rules",
     "description": "URL tracking parameter filter rules for ClearShare iOS App",
@@ -9,23 +9,43 @@
   },
   "platforms": [
     {
+      "name": "LINE",
+      "domains": ["line.me", "liff.line.me", "page.line.me", "lin.ee"],
+      "category": "messaging",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["openExternalBrowser", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "LINE TODAY",
+      "domains": ["today.line.me"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "ref"]
+      }
+    },
+    {
       "name": "Instagram",
       "domains": ["instagram.com", "www.instagram.com"],
       "category": "social",
       "enabled_by_default": true,
       "filter": {
-        "mode": "keep",
-        "params": []
+        "mode": "remove",
+        "params": ["igsh", "igshid", "img_index", "hl"]
       }
     },
     {
       "name": "Facebook",
-      "domains": ["facebook.com", "www.facebook.com", "m.facebook.com"],
+      "domains": ["facebook.com", "www.facebook.com", "m.facebook.com", "fb.com", "fb.watch"],
       "category": "social",
       "enabled_by_default": true,
       "filter": {
-        "mode": "keep",
-        "params": ["fbid"]
+        "mode": "remove",
+        "params": ["fbclid", "mibextid", "__tn__", "__cft__", "comment_tracking", "dti", "hc_ref", "hc_location", "ref", "refid", "fref", "acontext", "aref"]
       }
     },
     {
@@ -35,7 +55,7 @@
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["s", "t", "src"]
+        "params": ["s", "t", "src", "ref_src", "ref_url", "cn", "refsrc"]
       }
     },
     {
@@ -50,12 +70,12 @@
     },
     {
       "name": "TikTok",
-      "domains": ["tiktok.com", "www.tiktok.com", "vm.tiktok.com"],
+      "domains": ["tiktok.com", "www.tiktok.com", "vm.tiktok.com", "vt.tiktok.com"],
       "category": "social",
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["is_from_webapp", "sender_device", "web_id", "_r", "_t"]
+        "params": ["is_from_webapp", "sender_device", "web_id", "_r", "_t", "_d", "u_code", "preview_pb", "timestamp", "user_id", "share_app_name", "share_app_id", "share_iid", "source", "sec_uid", "checksum", "tt_from", "is_copy_url", "enter_from"]
       }
     },
     {
@@ -64,8 +84,8 @@
       "category": "social",
       "enabled_by_default": true,
       "filter": {
-        "mode": "keep",
-        "params": ["trackingId"]
+        "mode": "remove",
+        "params": ["trk", "trkInfo", "trackingId", "refId", "lipi", "li_fat_id", "src"]
       }
     },
     {
@@ -75,7 +95,7 @@
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["mt", "source_app_id"]
+        "params": ["mt", "source_app_id", "rs"]
       }
     },
     {
@@ -85,27 +105,57 @@
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["share_id", "context", "ref", "ref_source"]
+        "params": ["share_id", "context", "ref", "ref_source", "utm_source", "utm_medium", "utm_name", "rdt"]
+      }
+    },
+    {
+      "name": "Dcard",
+      "domains": ["dcard.tw", "www.dcard.tw"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["ref", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "PTT (Web)",
+      "domains": ["ptt.cc", "www.ptt.cc", "term.ptt.cc"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": []
+      }
+    },
+    {
+      "name": "Mobile01",
+      "domains": ["mobile01.com", "www.mobile01.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["ref", "utm_source", "utm_medium", "utm_campaign"]
       }
     },
     {
       "name": "YouTube",
-      "domains": ["youtube.com", "www.youtube.com", "m.youtube.com"],
+      "domains": ["youtube.com", "www.youtube.com", "m.youtube.com", "music.youtube.com"],
       "category": "video",
       "enabled_by_default": true,
       "filter": {
         "mode": "keep",
-        "params": ["v", "list", "t", "start"]
+        "params": ["v", "list", "t", "start", "index"]
       }
     },
     {
-      "name": "YouTube 短網址",
-      "domains": ["youtu.be"],
+      "name": "YouTube Shorts/Share",
+      "domains": ["youtu.be", "youtube.com"],
       "category": "video",
       "enabled_by_default": true,
       "filter": {
-        "mode": "keep",
-        "params": ["t", "start"]
+        "mode": "remove",
+        "params": ["si", "pp", "feature"]
       }
     },
     {
@@ -119,8 +169,78 @@
       }
     },
     {
-      "name": "淘寶",
-      "domains": ["taobao.com", "item.taobao.com", "m.taobao.com"],
+      "name": "Twitch",
+      "domains": ["twitch.tv", "www.twitch.tv"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["tt_medium", "tt_content", "tt_email_id"]
+      }
+    },
+    {
+      "name": "momo",
+      "domains": ["momo.tw", "momoshop.com.tw", "m.momoshop.com.tw", "www.momoshop.com.tw"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "cid", "oid", "member", "mcode", "mdiv", "ctype"]
+      }
+    },
+    {
+      "name": "PChome 24h",
+      "domains": ["24h.pchome.com.tw", "shopping.pchome.com.tw", "ecshweb.pchome.com.tw", "www.pchome.com.tw"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref", "mod", "func", "r"]
+      }
+    },
+    {
+      "name": "Yahoo",
+      "domains": ["tw.buy.yahoo.com", "tw.mall.yahoo.com", "tw.yahoo.com", "yahoo.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "guccounter", "guce_referrer", "guce_referrer_sig", "soc_src", "soc_trk", "ref"]
+      }
+    },
+    {
+      "name": "Books.com.tw",
+      "domains": ["books.com.tw", "www.books.com.tw"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "sloc", "loc", "Ref"]
+      }
+    },
+    {
+      "name": "Rakuten",
+      "domains": ["rakuten.com.tw", "www.rakuten.com.tw"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "scid", "ref"]
+      }
+    },
+    {
+      "name": "Coupang Taiwan",
+      "domains": ["coupang.tw", "www.coupang.tw"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "sourceType", "itemId", "vendorItemId", "q", "searchId", "wPcid", "wRef"]
+      }
+    },
+    {
+      "name": "Taobao",
+      "domains": ["taobao.com", "item.taobao.com", "m.taobao.com", "world.taobao.com"],
       "category": "ecommerce",
       "enabled_by_default": true,
       "filter": {
@@ -129,8 +249,8 @@
       }
     },
     {
-      "name": "天貓",
-      "domains": ["tmall.com", "detail.tmall.com"],
+      "name": "Tmall",
+      "domains": ["tmall.com", "detail.tmall.com", "www.tmall.com"],
       "category": "ecommerce",
       "enabled_by_default": true,
       "filter": {
@@ -140,22 +260,22 @@
     },
     {
       "name": "Amazon",
-      "domains": ["amazon.com", "www.amazon.com", "amazon.co.jp", "amazon.co.uk", "amazon.de"],
+      "domains": ["amazon.com", "www.amazon.com", "amazon.co.jp", "www.amazon.co.jp", "amazon.co.uk", "amazon.de"],
       "category": "ecommerce",
       "enabled_by_default": true,
       "filter": {
-        "mode": "keep",
-        "params": ["keywords", "qid", "sr"]
+        "mode": "remove",
+        "params": ["tag", "ref", "ref_", "pf_rd_r", "pf_rd_p", "pf_rd_s", "pf_rd_t", "pf_rd_i", "pd_rd_r", "pd_rd_w", "pd_rd_wg", "qid", "sr", "dchild", "keywords", "sprefix", "crid", "th", "psc", "ascsubtag", "linkCode", "creativeASIN", "camp", "creative", "smid"]
       }
     },
     {
       "name": "eBay",
-      "domains": ["ebay.com", "www.ebay.com"],
+      "domains": ["ebay.com", "www.ebay.com", "ebay.co.uk"],
       "category": "ecommerce",
       "enabled_by_default": true,
       "filter": {
-        "mode": "keep",
-        "params": ["hash", "item"]
+        "mode": "remove",
+        "params": ["_trkparms", "_trksid", "amdata", "mkevt", "mkcid", "mkrid", "campid", "toolid", "customid", "var", "norover", "satitle"]
       }
     },
     {
@@ -165,17 +285,27 @@
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["srcSns", "spreadType", "bizType", "social_params", "aff_fcid", "aff_fsk", "aff_platform", "aff_trace_key"]
+        "params": ["srcSns", "spreadType", "bizType", "social_params", "aff_fcid", "aff_fsk", "aff_platform", "aff_trace_key", "sk", "dp", "terminal_id", "algo_pvid", "algo_exp_id", "pdp_npi", "spm", "gps-id", "scm", "scm_id", "scm-url"]
       }
     },
     {
-      "name": "蝦皮",
-      "domains": ["shopee.tw", "shopee.com.my", "shopee.sg"],
+      "name": "Shopee",
+      "domains": ["shopee.tw", "shopee.com.my", "shopee.sg", "shopee.co.id", "shopee.vn", "shopee.ph", "shopee.co.th"],
       "category": "ecommerce",
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["af_siteid", "af_click_lookback", "af_viewthrough_lookback", "is_from_login", "af_reengagement_window", "af_sub_siteid", "c", "pid"]
+        "params": ["af_siteid", "af_click_lookback", "af_viewthrough_lookback", "is_from_login", "af_reengagement_window", "af_sub_siteid", "c", "pid", "smtt", "publish_id", "sp_atk", "xptdk", "xtra", "sub_id", "deep_and_deferred", "is_retargeting", "shortlink"]
+      }
+    },
+    {
+      "name": "Ruten",
+      "domains": ["ruten.com.tw", "www.ruten.com.tw", "goods.ruten.com.tw"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
       }
     },
     {
@@ -185,7 +315,7 @@
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["si", "utm_source", "utm_medium", "utm_campaign", "nd"]
+        "params": ["si", "utm_source", "utm_medium", "utm_campaign", "nd", "dl_branch", "context"]
       }
     },
     {
@@ -195,7 +325,7 @@
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["i", "ls", "app", "at", "ct", "pt"]
+        "params": ["i", "ls", "app", "at", "ct", "pt", "mt"]
       }
     },
     {
@@ -205,7 +335,307 @@
       "enabled_by_default": true,
       "filter": {
         "mode": "remove",
-        "params": ["trackId", "tctx", "jbv"]
+        "params": ["trackId", "tctx", "jbv", "jbb"]
+      }
+    },
+    {
+      "name": "KKBOX",
+      "domains": ["kkbox.com", "www.kkbox.com"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content"]
+      }
+    },
+    {
+      "name": "MyVideo",
+      "domains": ["myvideo.net.tw", "www.myvideo.net.tw"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "friDay Video",
+      "domains": ["video.friday.tw"],
+      "category": "media",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Google",
+      "domains": ["google.com", "www.google.com", "google.com.tw"],
+      "category": "search",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["ved", "ei", "uact", "gs_lcp", "sclient", "source", "oq", "usg", "sa", "sca_esv", "sxsrf", "biw", "bih", "dpr"]
+      }
+    },
+    {
+      "name": "Google Maps",
+      "domains": ["maps.google.com", "www.google.com/maps", "goo.gl/maps"],
+      "category": "maps",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "entry", "shorturl"]
+      }
+    },
+    {
+      "name": "News Websites",
+      "domains": ["udn.com", "news.ltn.com.tw", "chinatimes.com", "setn.com", "ettoday.net", "tvbs.com.tw", "cna.com.tw", "storm.mg"],
+      "category": "news",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "from", "ref"]
+      }
+    },
+    {
+      "name": "Temu",
+      "domains": ["temu.com", "www.temu.com"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["_p_jump_id", "_x_cid", "_x_campaign", "_oak_page_source", "_x_sessn_id", "_x_vst_scene", "refer_page_el_sn", "refer_page_name", "refer_page_id", "refer_page_sn"]
+      }
+    },
+    {
+      "name": "Shein",
+      "domains": ["shein.com", "www.shein.com", "shein.tw"],
+      "category": "ecommerce",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["mallCode", "src_module", "src_tab_page_id", "src_identifier", "share_from", "ref", "rep", "ret"]
+      }
+    },
+    {
+      "name": "Bahamut",
+      "domains": ["gamer.com.tw", "forum.gamer.com.tw", "home.gamer.com.tw", "acg.gamer.com.tw"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref", "from"]
+      }
+    },
+    {
+      "name": "Pixnet",
+      "domains": ["pixnet.net", "www.pixnet.net"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "iCook",
+      "domains": ["icook.tw", "www.icook.tw"],
+      "category": "lifestyle",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref"]
+      }
+    },
+    {
+      "name": "Foodpanda",
+      "domains": ["foodpanda.com.tw", "www.foodpanda.com.tw"],
+      "category": "food",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]
+      }
+    },
+    {
+      "name": "UberEats",
+      "domains": ["ubereats.com", "www.ubereats.com"],
+      "category": "food",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "ps", "ad_id"]
+      }
+    },
+    {
+      "name": "Agoda",
+      "domains": ["agoda.com", "www.agoda.com"],
+      "category": "travel",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["cid", "tag", "gclid", "aid", "ds", "label", "pcs", "pslc"]
+      }
+    },
+    {
+      "name": "Booking.com",
+      "domains": ["booking.com", "www.booking.com"],
+      "category": "travel",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["aid", "label", "sid", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+      }
+    },
+    {
+      "name": "Klook",
+      "domains": ["klook.com", "www.klook.com"],
+      "category": "travel",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "aid", "aff_label"]
+      }
+    },
+    {
+      "name": "KKday",
+      "domains": ["kkday.com", "www.kkday.com"],
+      "category": "travel",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "cid", "ud1", "ud2"]
+      }
+    },
+    {
+      "name": "Telegram",
+      "domains": ["t.me", "telegram.me", "telegram.org"],
+      "category": "messaging",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": []
+      }
+    },
+    {
+      "name": "Discord",
+      "domains": ["discord.com", "discord.gg", "discordapp.com"],
+      "category": "messaging",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": []
+      }
+    },
+    {
+      "name": "Medium",
+      "domains": ["medium.com", "www.medium.com"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["source", "sk", "utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Notion",
+      "domains": ["notion.so", "www.notion.so", "notion.site"],
+      "category": "productivity",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "pvs"]
+      }
+    },
+    {
+      "name": "GitHub",
+      "domains": ["github.com", "www.github.com"],
+      "category": "development",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "ref", "source"]
+      }
+    },
+    {
+      "name": "Steam",
+      "domains": ["store.steampowered.com", "steampowered.com", "steamcommunity.com"],
+      "category": "gaming",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "snr", "curator_clanid"]
+      }
+    },
+    {
+      "name": "Nintendo",
+      "domains": ["nintendo.com", "nintendo.com.tw", "nintendo.co.jp"],
+      "category": "gaming",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "PlayStation",
+      "domains": ["playstation.com", "store.playstation.com"],
+      "category": "gaming",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign", "smcid"]
+      }
+    },
+    {
+      "name": "Bluesky",
+      "domains": ["bsky.app", "bsky.social"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": []
+      }
+    },
+    {
+      "name": "Mastodon",
+      "domains": ["mastodon.social", "mstdn.social", "mas.to"],
+      "category": "social",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "keep",
+        "params": []
+      }
+    },
+    {
+      "name": "Vimeo",
+      "domains": ["vimeo.com", "www.vimeo.com", "player.vimeo.com"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "Dailymotion",
+      "domains": ["dailymotion.com", "www.dailymotion.com"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["utm_source", "utm_medium", "utm_campaign"]
+      }
+    },
+    {
+      "name": "NicoNico",
+      "domains": ["nicovideo.jp", "www.nicovideo.jp", "nico.ms"],
+      "category": "video",
+      "enabled_by_default": true,
+      "filter": {
+        "mode": "remove",
+        "params": ["ref", "from", "track"]
       }
     }
   ],
@@ -228,12 +658,16 @@
     "ga_term",
     "ga_content",
     "fbclid",
+    "mibextid",
     "_fbc",
     "_fbp",
     "fb_action_ids",
     "fb_action_types",
     "fb_source",
     "fb_ref",
+    "__tn__",
+    "__cft__",
+    "comment_tracking",
     "xmt",
     "slof",
     "igsh",
@@ -244,6 +678,8 @@
     "_gcl_aw",
     "_gcl_dc",
     "dclid",
+    "wbraid",
+    "gbraid",
     "msclkid",
     "ttclid",
     "twclid",
@@ -266,7 +702,12 @@
     "socialref",
     "hootPostID",
     "__s",
+    "__hssc",
+    "__hstc",
+    "__hsfp",
+    "hsCtaTracking",
     "s_kwcid",
+    "ef_id",
     "ref",
     "referer",
     "referrer",
@@ -298,6 +739,95 @@
     "wickedid",
     "_openstat",
     "from",
-    "via"
+    "via",
+    "si",
+    "pp",
+    "feature",
+    "openExternalBrowser",
+    "smtt",
+    "sp_atk",
+    "xptdk",
+    "publish_id",
+    "mtm_source",
+    "mtm_medium",
+    "mtm_campaign",
+    "mtm_keyword",
+    "mtm_cid",
+    "mtm_content",
+    "pk_source",
+    "pk_medium",
+    "pk_campaign",
+    "pk_keyword",
+    "pk_cid",
+    "pk_content",
+    "WT.mc_id",
+    "WT.tsrc",
+    "icid",
+    "mkt_tok",
+    "ns_source",
+    "ns_fee",
+    "ns_mchannel",
+    "ns_campaign",
+    "ns_linkname",
+    "ito",
+    "itok",
+    "rb_clickid",
+    "cx_artPos",
+    "cx_navSource",
+    "cx_tag",
+    "tt_from",
+    "tt_clid",
+    "share_link_id",
+    "embed_source",
+    "referer_url",
+    "enter_method",
+    "embeds_referring_euri",
+    "embeds_referring_origin",
+    "_p_jump_id",
+    "_x_cid",
+    "_x_campaign",
+    "_oak_page_source",
+    "mallCode",
+    "src_module",
+    "src_identifier",
+    "share_from",
+    "ing_action_name",
+    "ing_session_id",
+    "ing_source",
+    "action_object_map",
+    "action_type_map",
+    "action_ref_map",
+    "fbadid",
+    "fb_comment_id",
+    "paipv",
+    "_nc_x",
+    "srsltid",
+    "hl",
+    "_kx",
+    "hsa_acc",
+    "hsa_cam",
+    "hsa_grp",
+    "hsa_ad",
+    "hsa_src",
+    "hsa_tgt",
+    "hsa_kw",
+    "hsa_mt",
+    "hsa_net",
+    "hsa_ver",
+    "rdt_cid",
+    "cvid",
+    "nclid",
+    "form",
+    "sp_csd",
+    "spm_id_from",
+    "from_spmid",
+    "share_medium",
+    "share_plat",
+    "share_session_id",
+    "share_source",
+    "share_tag",
+    "timestamp",
+    "unique_k",
+    "vd_source"
   ]
 }
